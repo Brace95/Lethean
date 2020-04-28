@@ -22,15 +22,15 @@
 
     <body>
 
-        <?php include_once '/src/php/header.php' ?>
-        <?php include_once '/src/php/navi.php' ?>
+        <?php include_once './src/php/header.php' ?>
+        <?php include_once './src/php/navi.php' ?>
 
         <main>
 
         </main>
 
-        <?php include_once '/src/php/footer.php' ?>
-        
+        <?php include_once './src/php/footer.php' ?>
+
     </body>
 
 </html>
