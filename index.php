@@ -34,7 +34,7 @@
             ?>
 
             <div class="card">
-                <img src="" alt="" />
+                <img src="" alt="map" class="text-center" />
                 <div class="card-header">
                     <h5 class-="card-title"><?php echo $provider->providerName; ?></h5> 
                 </div>
@@ -46,9 +46,16 @@
                                 <p>Stability: <?php echo $provider->mStability; ?></p>
                             </div>
                             <div class="col">
-                                <p>Download Speed: <?php echo $provider->downloadSpeed/(1024*1024); ?>Mbps</p>
-                                <p>Upload Speed: <?php echo $provider->uploadSpeed/(1024*1024); ?>Mbps</p>
+                                <p>Download Speed: <?php echo $provider->downloadSpeed/(1000*1000); ?>Mbps</p>
+                                <p>Upload Speed: <?php echo $provider->uploadSpeed/(1000*1000); ?>Mbps</p>
                             </div>
+                        </div>
+                        <div class="row">
+                            <p class="text-right">
+                                <?php echo $provider->cost; ?>
+                                <img class="bullet" src="https://images.squarespace-cdn.com/content/v1/5c86e337809d8e6661fefe74/1554742652993-GORMP78JS81V3NRRO0CQ/ke17ZwdGBToddI8pDm48kJycfsYb1urLU93EpFqOTQmoCXeSvxnTEQmG4uwOsdIceAoHiyRoc52GMN5_2H8WpwgL4wI2D_AHIh_vss1JoxZD3UMNL-MOqG5-2RCLT_RsnJVHPJJ1-XiWt_skTFO5QQ/favicon.ico?format=">
+                                /m
+                            </p>
                         </div>
                     </div>
                 </div>
