@@ -25,10 +25,9 @@
         <?php include_once './src/php/header.php' ?>
         <?php include_once './src/php/navi.php' ?>
 
-        <main class="container-fluid">
+        <main class="container">
             <?php foreach ($json->providers as $i => $provider) { 
                 if ($provider->type == "vpn") {?>
-            <input type="hidden" name="provider" value="<?php echo $i?>">
             <div class="title row">
                 <h3><?php echo $provider->providerName ?></h3>
             </div>
