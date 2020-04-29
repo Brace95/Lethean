@@ -1,5 +1,5 @@
 <?php
-    include_once './api.php'
+    //include_once './api.php'
 ?>
 
 <!DOCTYPE html>
