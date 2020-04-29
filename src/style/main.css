@@ -3,3 +3,9 @@ body
     background-color: #051414;
     color: #33cccc;
 }
+
+.bullet
+{
+    height: 16px;
+    width: 16px;
+}
