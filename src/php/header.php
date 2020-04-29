@@ -1,3 +1,3 @@
 <header class="container text-center">
-    <img class="container table" src="https://images.squarespace-cdn.com/content/v1/5c86e337809d8e6661fefe74/1555087719518-E6YD75NNIU2EWCRF4BD7/ke17ZwdGBToddI8pDm48kCh-p1or-tta3gKg9GOxVdIUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYy7Mythp_T-mtop-vrsUOmeInPi9iDjx9w8K4ZfjXt2dk5kkpqbfxJ12gV3S3yHEfTYmpZnxeaQRhrvv5Ey2D-ECjLISwBs8eEdxAxTptZAUg/lethean-shield-logo.png?format=1500w">
+    <img class="img-fluid" src="https://images.squarespace-cdn.com/content/v1/5c86e337809d8e6661fefe74/1555087719518-E6YD75NNIU2EWCRF4BD7/ke17ZwdGBToddI8pDm48kCh-p1or-tta3gKg9GOxVdIUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYy7Mythp_T-mtop-vrsUOmeInPi9iDjx9w8K4ZfjXt2dk5kkpqbfxJ12gV3S3yHEfTYmpZnxeaQRhrvv5Ey2D-ECjLISwBs8eEdxAxTptZAUg/lethean-shield-logo.png?format=1500w">
 </header>
