@@ -34,7 +34,7 @@
             ?>
 
             <div class="card">
-                <img src="" alt="map" class="text-center" />
+                <img src="" class="text-center" alt="map"/>
                 <div class="card-header">
                     <h5 class-="card-title"><?php echo $provider->providerName; ?></h5> 
                 </div>
@@ -55,6 +55,9 @@
                                 <?php echo $provider->cost; ?>
                                 <img class="bullet" src="https://images.squarespace-cdn.com/content/v1/5c86e337809d8e6661fefe74/1554742652993-GORMP78JS81V3NRRO0CQ/ke17ZwdGBToddI8pDm48kJycfsYb1urLU93EpFqOTQmoCXeSvxnTEQmG4uwOsdIceAoHiyRoc52GMN5_2H8WpwgL4wI2D_AHIh_vss1JoxZD3UMNL-MOqG5-2RCLT_RsnJVHPJJ1-XiWt_skTFO5QQ/favicon.ico?format=">
                                 /m
+                                <?php echo " (Min Cost " . ($provider->firstPrePaidMinutes * $provider->cost); ?>
+                                <img class="bullet" src="https://images.squarespace-cdn.com/content/v1/5c86e337809d8e6661fefe74/1554742652993-GORMP78JS81V3NRRO0CQ/ke17ZwdGBToddI8pDm48kJycfsYb1urLU93EpFqOTQmoCXeSvxnTEQmG4uwOsdIceAoHiyRoc52GMN5_2H8WpwgL4wI2D_AHIh_vss1JoxZD3UMNL-MOqG5-2RCLT_RsnJVHPJJ1-XiWt_skTFO5QQ/favicon.ico?format=">
+                                )
                             </div>
                         </div>
                     </div>
