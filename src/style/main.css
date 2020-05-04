@@ -12,5 +12,15 @@ body
 
 .card
 {
-    background-color: rgba(59, 59, 59, 1);
+    background-color: #112e2e;
+}
+
+.card-body
+{
+    background-color: #1f4646;
+}
+
+.card-footer
+{
+    background-color: #112e2e;
 }
