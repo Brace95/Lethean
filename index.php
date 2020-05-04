@@ -1,5 +1,7 @@
 <?php
-    include_once './api.php'
+    include_once './api.php';
+    $lethean_logo = "https://images.squarespace-cdn.com/content/v1/5c86e337809d8e6661fefe74/1554742652993-GORMP78JS81V3NRRO0CQ/ke17ZwdGBToddI8pDm48kJycfsYb1urLU93EpFqOTQmoCXeSvxnTEQmG4uwOsdIceAoHiyRoc52GMN5_2H8WpwgL4wI2D_AHIh_vss1JoxZD3UMNL-MOqG5-2RCLT_RsnJVHPJJ1-XiWt_skTFO5QQ/favicon.ico?format=";
+
 ?>
 
 <!DOCTYPE html>
@@ -46,17 +48,17 @@
                                 <p>Stability: <?php echo $provider->mStability; ?></p>
                             </div>
                             <div class="col">
-                                <p>Download Speed: <?php echo $provider->downloadSpeed/(1000*1000); ?> Mbps</p>
-                                <p>Upload Speed: <?php echo $provider->uploadSpeed/(1000*1000); ?> Mbps</p>
+                                <p>Download Speed: <?php echo number_format($provider->downloadSpeed/(1000*1000), 2); ?> Mbps</p>
+                                <p>Upload Speed: <?php echo number_format($provider->uploadSpeed/(1000*1000), 2); ?> Mbps</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col text-right">
-                                <?php echo $provider->cost; ?>
-                                <img class="bullet" src="https://images.squarespace-cdn.com/content/v1/5c86e337809d8e6661fefe74/1554742652993-GORMP78JS81V3NRRO0CQ/ke17ZwdGBToddI8pDm48kJycfsYb1urLU93EpFqOTQmoCXeSvxnTEQmG4uwOsdIceAoHiyRoc52GMN5_2H8WpwgL4wI2D_AHIh_vss1JoxZD3UMNL-MOqG5-2RCLT_RsnJVHPJJ1-XiWt_skTFO5QQ/favicon.ico?format=">
+                                <?php echo number_format($provider->cost, 2); ?>
+                                <img class="bullet" src="<?php echo $lethean_logo; ?>" >
                                 /m
                                 <?php echo " (Min Cost " . ($provider->firstPrePaidMinutes * $provider->cost); ?>
-                                <img class="bullet" src="https://images.squarespace-cdn.com/content/v1/5c86e337809d8e6661fefe74/1554742652993-GORMP78JS81V3NRRO0CQ/ke17ZwdGBToddI8pDm48kJycfsYb1urLU93EpFqOTQmoCXeSvxnTEQmG4uwOsdIceAoHiyRoc52GMN5_2H8WpwgL4wI2D_AHIh_vss1JoxZD3UMNL-MOqG5-2RCLT_RsnJVHPJJ1-XiWt_skTFO5QQ/favicon.ico?format=">
+                                <img class="bullet" src="<?php echo $lethean_logo; ?>" >
                                 )
                             </div>
                         </div>
