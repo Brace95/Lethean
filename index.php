@@ -66,11 +66,9 @@
                 </div>
                 <div class="card-footer">
                     <?php foreach ($provider->vpn as $j => $vpn) { ?>
-                        <button class="btn btn-outline-primary download"><?php echo "Download"; ?></button>
-                        <button class="btn btn-outline-primary config"><?php echo "Config"; ?></button>
-                        <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><?php echo "Details"; ?></button>
+                        <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#<?php echo "provider".$i."details"; ?>" aria-expanded="false" aria-controls="<?php echo "provider".$i."details"; ?>"><?php echo "Details"; ?></button>
                     <?php } ?>                    
-                    <div class="collapse" id="collapseExample">
+                    <div class="collapse" id="<?php echo "provider".$i."details"; ?>">
                         <div class="card card-body">
                             <p>Endpoint: <?php echo $vpn->endpoint; ?><br><br>Port: <?php echo $vpn->port; ?> </p>
                             <p>Endpoint Wallet: <?php echo $provider->providerWallet; ?><br><br>Payment ID (Required): <?php echo $provider->id; ?> </p>
