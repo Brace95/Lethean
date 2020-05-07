@@ -27,7 +27,7 @@ $ovpnTemplate = array(
 "persist-key",
 "",
 "# Not implemented yet. We trust CA",
-"#verify-x509-name "openvpn" name",
+"#verify-x509-name \"openvpn\" name",
 "auth SHA256",
 "cipher AES-256-CBC",
 "auth-user-pass",
