@@ -45,7 +45,16 @@
                         <div class="row">
                             <div class="col">
                                 <p>Description: <?php echo $provider->name; ?></p>
-                                <p>Stability: <?php echo $provider->mStability; ?></p>
+                                <p>Stability:
+                                    <?php
+                                    if ($provider->mStability == "") {
+                                    echo "Not yet rated";
+                                    }
+                                    else {
+                                        echo $provider->mStability . " / 5";
+                                        };
+                                    ?>
+                                </p>
                             </div>
                             <div class="col">
                                 <p>Download Speed: <?php echo number_format($provider->downloadSpeed/(1000*1000), 2); ?> Mbps</p>
@@ -57,8 +66,9 @@
                                 <?php echo number_format($provider->cost, 2); ?>
                                 <img class="bullet" src="<?php echo $lethean_logo; ?>" >
                                 /m
-                                <?php echo " (Min Cost " . ($provider->firstPrePaidMinutes * $provider->cost); ?>
+                                <?php echo " ( Min Cost " . ($provider->firstPrePaidMinutes * $provider->cost); ?>
                                 <img class="bullet" src="<?php echo $lethean_logo; ?>" >
+                                <?php echo " / " . $provider->firstPrePaidMinutes . " mins"; ?>
                                 )
                             </div>
                         </div>
