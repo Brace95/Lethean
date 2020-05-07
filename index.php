@@ -28,6 +28,7 @@
 
         <?php include_once './src/php/header.php' ?>
         <?php include_once './src/php/navi.php' ?>
+        <?php include_once '/generate.php' ?>
 
         <main class="container">
             <?php 
