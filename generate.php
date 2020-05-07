@@ -7,7 +7,7 @@ $portNum = "";
 
 // Start of OVPN Config Template
 
-$ovpnTemplate = array{
+$ovpnTemplate = array(
 "client",
 "remote $endpointDns $portNum udp",
 "proto udp",
@@ -59,7 +59,7 @@ $ovpnTemplate = array{
 "#</tls-auth>",
 "#key-direction 1",
 ""
-}
+);
 
 // End of OVPN Config Template
 
