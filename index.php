@@ -17,26 +17,34 @@
         <script>
 
             function fileDownload (filename, data) {
-                $("body").append("<a></a>").attr({
+                let dLink = $("<a></a>");
+
+                dLink.attr({
                     href: "data:text/plain;charset=utf-8," + encodeURIComponent(data),
                     download: filename,
-                    style: "display: none;"
-                }).trigger("click");
+                    style: "display: none;",
+                    id: "download_link"
+                });
+
+                $("body").append(dLink)
+                
+                let link = document.getElementById("download_link");
+                link.click();
+                document.body.removeChild(link);
             }
 
             $(document).ready(function () {
                 $(".download").click(function() {
                     let host = $(this).parent().find(".host").val();
                     let port = $(this).parent().find(".port").val();
-                    console.log("Host: " + host + " Port: " + port);
+                    let pName = $(this).parent().find(".provider").val();
+
                     $.ajax({
                         method: "GET",
                         url: "generate_v2.php", 
                         data: {host: host, port: port}
                     }).done(function (data) {
-                        console.log("Completed successfully. Results:");
-                        console.log(data);
-                        fileDownload("test.openvpn", data);
+                        fileDownload(pName + ".ovpn", data);
                     }).fail(function (){
                         console.log("Failed ajax call");
                     });
@@ -109,12 +117,13 @@
                         <div class="card card-body">
                             <div class="container">
                                 <div class="row">
-                                    <p>Endpoint: <?php echo $vpn->endpoint; ?></p>
-                                    <p>Port: <?php echo $vpn->port; ?> </p>
-                                    <p>Endpoint Wallet: <?php echo $provider->providerWallet; ?></p>
-                                    <p>Payment ID (Required): <?php echo $provider->id; ?> </p>
+                                    <p class="col">Endpoint: <?php echo $vpn->endpoint; ?></p>
+                                    <p class="col">Port: <?php echo $vpn->port; ?> </p>
+                                    <p class="col">Endpoint Wallet: <?php echo $provider->providerWallet; ?></p>
+                                    <p class="col">Payment ID (Required): <?php echo $provider->id; ?> </p>
                                 </div>
                                 <div class="row">
+                                    <input type="hidden" class="provider" value="<?php echo str_replace(" ", "_", $provider->providerName); ?>" />
                                     <input type="hidden" class="host" value="<?php echo $vpn->endpoint; ?>" />
                                     <input type="hidden" class="port" value="<?php echo str_replace("/UDP", "", $vpn->port); ?>" />
                                     <button class="download">Download</button>
