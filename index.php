@@ -16,7 +16,7 @@
         
         <script>
 
-            $(".button").click(function() {
+            $(".download").click(function() {
                 let host = $(this).parent().find(".host");
                 let port = $(this).parent().find(".port");
                 console.log("Host: " + host + " Port: " + port);
