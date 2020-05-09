@@ -19,13 +19,16 @@
             $(".button").click(function() {
                 let host = $(this).parent().find(".host");
                 let port = $(this).parent().find(".port");
-
+                console.log("Host: " + host + " Port: " + port);
                 $.ajax({
                     method: "GET",
                     url: "generatev2.php", 
                     data: {host: host, port: port}
                 }).done(function (data) {
+                    console.log("Completed successfully. Results:");
                     console.log(data);
+                }).fail(function (){
+                    console.log("Failed ajax call");
                 });
             });
 
