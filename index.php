@@ -16,6 +16,19 @@
         
         <script>
 
+            $(".button").click(function() {
+                let host = $(this).parent().find(".host");
+                let port = $(this).parent().find(".port");
+
+                $.ajax({
+                    method: "GET",
+                    url: "generatev2.php", 
+                    data: {host: host, port: port}
+                }).done(function (data) {
+                    console.log(data);
+                });
+            });
+
         </script>
 
         <style>
@@ -80,8 +93,19 @@
                     <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#provider_<?php echo $i; ?>_endpoint_<?php echo $j; ?>_details" aria-expanded="false" aria-controls="provider_<?php echo $i; ?>_endpoint_<?php echo $j; ?>_details">Endpoint <?php echo $j; ?></button>
                     <div class="collapse" id="provider_<?php echo $i; ?>_endpoint_<?php echo $j; ?>_details">
                         <div class="card card-body">
-                            <p>Endpoint: <?php echo $vpn->endpoint; ?><br><br>Port: <?php echo $vpn->port; ?> </p>
-                            <p>Endpoint Wallet: <?php echo $provider->providerWallet; ?><br><br>Payment ID (Required): <?php echo $provider->id; ?> </p>
+                            <div class="container">
+                                <div class="row">
+                                    <p>Endpoint: <?php echo $vpn->endpoint; ?></p>
+                                    <p>Port: <?php echo $vpn->port; ?> </p>
+                                    <p>Endpoint Wallet: <?php echo $provider->providerWallet; ?></p>
+                                    <p>Payment ID (Required): <?php echo $provider->id; ?> </p>
+                                </div>
+                                <div class="row">
+                                    <input type="hidden" class="host" value="<?php echo $vpn->endpoint; ?>" />
+                                    <input type="hidden" class="port" value="<?php echo str_replace("/UDP", "", $vpn->port); ?>" />
+                                    <button class="download">Download</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <?php } ?>
