@@ -16,19 +16,30 @@
         
         <script>
 
-            $(".download").click(function() {
-                let host = $(this).parent().find(".host").val();
-                let port = $(this).parent().find(".port").val();
-                console.log("Host: " + host + " Port: " + port);
-                $.ajax({
-                    method: "GET",
-                    url: "generate_v2.php", 
-                    data: {host: host, port: port}
-                }).done(function (data) {
-                    console.log("Completed successfully. Results:");
-                    console.log(data);
-                }).fail(function (){
-                    console.log("Failed ajax call");
+            function fileDownload (filename, data) {
+                $("body").append("<a></a>").attr({
+                    href: "data:text/plain;charset=utf-8,", + encodeURIComponent(data),
+                    download: filename,
+                    style: "display: none;"
+                }).trigger("click");
+            }
+
+            $(document).ready(function () {
+                $(".download").click(function() {
+                    let host = $(this).parent().find(".host").val();
+                    let port = $(this).parent().find(".port").val();
+                    console.log("Host: " + host + " Port: " + port);
+                    $.ajax({
+                        method: "GET",
+                        url: "generate_v2.php", 
+                        data: {host: host, port: port}
+                    }).done(function (data) {
+                        console.log("Completed successfully. Results:");
+                        console.log(data);
+                        fileDownload("test.openvpn", data);
+                    }).fail(function (){
+                        console.log("Failed ajax call");
+                    });
                 });
             });
 
