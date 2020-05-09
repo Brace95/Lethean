@@ -46,7 +46,7 @@
                     }).done(function (data) {
                         fileDownload(pName + ".ovpn", data);
                     }).fail(function (){
-                        console.log("Failed ajax call");
+                        console.log("Failed AJAX call");
                     });
                 });
             });
@@ -126,7 +126,7 @@
                                     <input type="hidden" class="provider" value="<?php echo str_replace(" ", "_", $provider->providerName); ?>" />
                                     <input type="hidden" class="host" value="<?php echo $vpn->endpoint; ?>" />
                                     <input type="hidden" class="port" value="<?php echo str_replace("/UDP", "", $vpn->port); ?>" />
-                                    <button class="download">Download</button>
+                                    <button class="download btn btn-outline-primary">Download</button>
                                 </div>
                             </div>
                         </div>
