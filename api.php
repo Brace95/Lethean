@@ -8,4 +8,7 @@
     
     $json = json_decode($res);
 
+    $temp = json_encode(Array(endpoint => "test.chaotic.group", port => "27223/UDP"));
+    array_push($json->providers[4]->vpn, temp);
+
 ?>
