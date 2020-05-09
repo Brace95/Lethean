@@ -18,7 +18,7 @@
 
             function fileDownload (filename, data) {
                 $("body").append("<a></a>").attr({
-                    href: "data:text/plain;charset=utf-8,", + encodeURIComponent(data),
+                    href: "data:text/plain;charset=utf-8," + encodeURIComponent(data),
                     download: filename,
                     style: "display: none;"
                 }).trigger("click");
