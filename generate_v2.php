@@ -1,7 +1,7 @@
 client
 remote <?php echo $_GET["host"]; ?> <?php echo $_GET["port"]; ?> udp
 proto udp
-rport <?php echo $_GET["port"]; ?>
+rport <?php echo $_GET["port"] . PHP_EOL; ?>
 nobind
 proto udp
 remote-cert-tls server

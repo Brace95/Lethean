@@ -17,12 +17,12 @@
         <script>
 
             $(".download").click(function() {
-                let host = $(this).parent().find(".host");
-                let port = $(this).parent().find(".port");
+                let host = $(this).parent().find(".host").val();
+                let port = $(this).parent().find(".port").val();
                 console.log("Host: " + host + " Port: " + port);
                 $.ajax({
                     method: "GET",
-                    url: "generatev2.php", 
+                    url: "generate_v2.php", 
                     data: {host: host, port: port}
                 }).done(function (data) {
                     console.log("Completed successfully. Results:");
