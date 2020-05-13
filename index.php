@@ -38,13 +38,14 @@
                     let host = $(this).parent().find(".host").val();
                     let port = $(this).parent().find(".port").val();
                     let pName = $(this).parent().find(".provider").val();
+                    let pId = $(this).parent().find(".id").val();
 
                     $.ajax({
                         method: "GET",
                         url: "generate_v2.php", 
                         data: {host: host, port: port}
                     }).done(function (data) {
-                        fileDownload(pName + ".ovpn", data);
+                        fileDownload(pName + pId + ".ovpn", data);
                     }).fail(function (){
                         console.log("Failed AJAX call");
                     });
@@ -124,6 +125,7 @@
                                 </div>
                                 <div class="row">
                                     <input type="hidden" class="provider" value="<?php echo str_replace(" ", "_", $provider->providerName); ?>" />
+                                    <input type="hidden" class="id" value="<?php echo ("_" . $provider->id); ?>" />
                                     <input type="hidden" class="host" value="<?php echo $vpn->endpoint; ?>" />
                                     <input type="hidden" class="port" value="<?php echo str_replace("/UDP", "", $vpn->port); ?>" />
                                     <button class="download btn btn-outline-primary">Download</button>
