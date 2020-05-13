@@ -1,3 +1,12 @@
+<?php
+  
+    if (!$_GET["host"] || !$_GET["port"]){
+        http_response_code(404);
+        die();
+    }
+
+?>
+
 client
 remote <?php echo $_GET["host"]; ?> <?php echo $_GET["port"]; ?> udp
 proto udp
