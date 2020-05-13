@@ -42,7 +42,7 @@
 
                     $.ajax({
                         method: "GET",
-                        url: "generate_v2.php", 
+                        url: "generate.php", 
                         data: {host: host, port: port}
                     }).done(function (data) {
                         fileDownload(pName + pId + ".ovpn", data);
@@ -64,7 +64,6 @@
 
         <?php include_once './src/php/header.php' ?>
         <?php include_once './src/php/navi.php' ?>
-        <?php include_once '/generate.php' ?>
 
         <main class="container">
             <?php 
