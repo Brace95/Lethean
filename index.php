@@ -79,33 +79,83 @@
                 <div class="card-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col">
-                                <p>Description: <?php echo $provider->name; ?></p>
-                                <p>Stability:
-                                    <?php
-                                    if ($provider->mStability == "") {
-                                        echo "Not yet rated";
-                                    }
-                                    else {
-                                        echo $provider->mStability . " / 5";
-                                    };
-                                    ?>
-                                </p>
+                            <div class="col text-center">
+                                <?php echo "Provider ID"; ?>
                             </div>
-                            <div class="col">
-                                <p>Download Speed: <?php echo number_format($provider->downloadSpeed/(1000*1000), 2); ?> Mbps</p>
-                                <p>Upload Speed: <?php echo number_format($provider->uploadSpeed/(1000*1000), 2); ?> Mbps</p>
+                            <div class="col text-center">
+                                <?php echo "Stability"; ?>
+                            </div>
+                            <div class="col text-center">
+                                <?php 
+                                if ($provider->mStability == "") {
+                                    echo "Not Rated";
+                                }
+                                else {
+                                    echo $provider->mStability;
+                                };
+                                ?>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col text-right">
+                            <div class="col text-center">
+                                <?php echo $provider->id; ?>
+                            </div>
+                            <div class="col text-center">
+                                <?php echo "Speed"; ?>
+                            </div>
+                            <div class="col text-center">
+                                <?php 
+                                if ($provider->mSpeed == "") {
+                                    echo "Not Rated";
+                                }
+                                else {
+                                echo $provider->mSpeed; 
+                                };
+                                ?>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                            </div>
+                            <div class="col text-center">
+                                <?php echo "Download"; ?>
+                            </div>
+                            <div class="col text-center">
+                                <?php echo number_format($provider->downloadSpeed/(1000*1000), 2); ?> Mbps
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                            </div>
+                            <div class="col text-center">
+                                <?php echo "Upload"; ?>
+                            </div>
+                            <div class="col text-center">
+                                <?php echo number_format($provider->uploadSpeed/(1000*1000), 2); ?> Mbps
+                            </div>
+                        </div> 
+                        <div class="row">
+                            <div class="col text-center">
+                            </div>
+                            <div class="col text-center">
+                                <?php echo "Cost"; ?>
+                            </div>                            
+                            <div class="col text-center">
+                                <img class="bullet" src="<?php echo $lethean_logo; ?>" >
                                 <?php echo number_format($provider->cost, 2); ?>
-                                <img class="bullet" src="<?php echo $lethean_logo; ?>" >
                                 /m
-                                <?php echo " ( Min " . ($provider->firstPrePaidMinutes * $provider->cost); ?>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                            </div>
+                            <div class="col text-center">
+                                <?php echo "Min cost "; ?>
+                            </div>
+                            <div class="col text-center">
+                                <em><?php echo ($provider->firstPrePaidMinutes * $provider->cost); ?></em>
                                 <img class="bullet" src="<?php echo $lethean_logo; ?>" >
-                                <?php echo " / " . $provider->firstPrePaidMinutes . " mins"; ?>
-                                )
+                                <em><?php echo " / " . $provider->firstPrePaidMinutes . " mins"; ?></em>
                             </div>
                         </div>
                     </div>
@@ -118,9 +168,15 @@
                             <div class="container">
                                 <div class="row">
                                     <p class="col">Endpoint: <?php echo $vpn->endpoint; ?></p>
-                                    <p class="col">Port: <?php echo $vpn->port; ?> </p>
+                                </div>
+                                <div class="row">
+                                    <p class="col">Port: <?php echo $vpn->port; ?></p>
+                                </div>
+                                <div class="row">
                                     <p class="col">Endpoint Wallet: <?php echo $provider->providerWallet; ?></p>
-                                    <p class="col">Payment ID (Required): <?php echo $provider->id; ?> </p>
+                                </div>
+                                <div class="row">
+                                    <p class="col">Payment ID (Required): <?php echo $provider->id; ?></p>
                                 </div>
                                 <div class="row">
                                     <input type="hidden" class="provider" value="<?php echo str_replace(" ", "_", $provider->providerName); ?>" />
