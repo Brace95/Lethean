@@ -1,31 +1,83 @@
-body
-{
-    background-color: #051414;
-    color: #33cccc;
-}
-
 .bullet
 {
     height: 16px;
     width: 16px;
 }
 
-.card
-{
-    background-color: #112e2e;
+.dark-theme {
+    background-color: #051414;
+    color: #33cccc;
+    filter: contrast(100%) saturate(100%);
 }
 
-.card-body
+.dark-card
 {
+    background-color: #112e2e !important;
+}
+
+.dark-card-body
+{
+    background-color: #1f4646 !important;
+}
+
+.dark-card-footer
+{
+    background-color: #112e2e !important;
+}
+
+.dark-card-value
+{
+    color: white !important;
+}
+
+.dark-imgFilter {
+    filter: contrast(100%) saturate(100%) !important;
+}
+
+.light-theme {
+    background-color: white;
+    color: #051414;
+    filter: contrast(100%) saturate(100%);
+}
+
+.light-card
+{
+    background-color: #3e8e8e;
+}
+
+.light-card-body
+{
+    background-color: GainsBoro;
+}
+
+.light-card-footer
+{
+    background-color: #3e8e8e;
+}
+
+.light-card-value
+{
+    color: Black;
+}
+
+.light-imgFilter {
+    filter: contrast(60%) saturate(130%);
+}
+
+.options {
+    margin: 10px 10px 10px 0;
+    text-align: right;
+}
+
+.dark-button {
     background-color: #1f4646;
-}
-
-.card-footer
-{
-    background-color: #112e2e;
-}
-
-.card-value
-{
     color: white;
+    font-size: small;
+}
+
+.light-button {
+    background-color: white;
+    color: #051414;
+    font-size: small;
+
 }
