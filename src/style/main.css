@@ -4,6 +4,14 @@
     width: 16px;
 }
 
+.lock
+{
+    margin: 0 0 0 5px;
+    height: 14px;
+    width: 12px;
+    font-style: italic; 
+}
+
 .dark-theme {
     background-color: #051414;
     color: #33cccc;
@@ -31,28 +39,28 @@
 }
 
 .dark-imgFilter {
-    filter: contrast(100%) saturate(100%) !important;
+    filter: contrast(100%) saturate(100%) brightness(100%);
 }
 
 .light-theme {
-    background-color: white;
-    color: #051414;
+    background-color: #ebfafa;
+    color: #153737;
     filter: contrast(100%) saturate(100%);
 }
 
 .light-card
 {
-    background-color: #3e8e8e;
+    background-color: #7ecece;
 }
 
 .light-card-body
 {
-    background-color: GainsBoro;
+    background-color: #b8e0e0;
 }
 
 .light-card-footer
 {
-    background-color: #3e8e8e;
+    background-color: #7ecece;
 }
 
 .light-card-value
@@ -61,7 +69,7 @@
 }
 
 .light-imgFilter {
-    filter: contrast(60%) saturate(130%);
+    filter: contrast(200%) saturate(200%) brightness(70%)
 }
 
 .options {
