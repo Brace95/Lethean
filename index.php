@@ -63,8 +63,11 @@
     <body class="light-theme">
 
         <div class="options">
-            <button class="dark-button" onclick="selectMode('night');">Dark Mode</button>
-            <button class="light-button" onclick="selectMode('light');">Light Mode</button>
+            <!-- Rounded switch -->
+            <label class="switch">
+                <input type="checkbox" id="theme-slider" onclick="themeSlider()">
+                <span class="slider round"></span>
+            </label>
         </div>
 
         <?php include_once './src/php/header.php' ?>
@@ -77,7 +80,7 @@
             ?>
 
             <div class="card light-card">
-                <p><img src="https://raw.githubusercontent.com/LetheanMovement/lethean-gui/master/images/lockIcon.png" class="text-center lock" alt="map"/> map coming soon</p>
+                <span class="coming-soon"><img src="https://raw.githubusercontent.com/LetheanMovement/lethean-gui/master/images/lockIcon.png" class="text-center lock" alt="map"/> map coming soon</span>
                 <div class="card-header">
                     <h5 class-="card-title"><?php echo $provider->providerName; ?></h5> 
                 </div>
@@ -169,7 +172,7 @@
                 </div>
                 <div class="card-footer light-card-footer">
                     <?php foreach ($provider->vpn as $j => $vpn) { ?>
-                    <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#provider_<?php echo $i; ?>_endpoint_<?php echo $j; ?>_details" aria-expanded="false" aria-controls="provider_<?php echo $i; ?>_endpoint_<?php echo $j; ?>_details">Endpoint <?php echo $j+1; ?></button>
+                    <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#provider_<?php echo $i; ?>_endpoint_<?php echo $j; ?>_details" aria-expanded="false" aria-controls="provider_<?php echo $i; ?>_endpoint_<?php echo $j; ?>_details">Details</button>
                     <div class="collapse" id="provider_<?php echo $i; ?>_endpoint_<?php echo $j; ?>_details">
                         <div class="card-body light-card-body">
                             <div class="container">
