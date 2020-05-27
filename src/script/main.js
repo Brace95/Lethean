@@ -1,6 +1,10 @@
-function selectMode(mode) {
+function themeSlider() {
 
-    if (mode === "night") {
+    // Get the slider checkbox state
+    var themeSlider = document.getElementById("theme-slider");
+        
+    // Night mode
+    if (themeSlider.checked == true) {
 
         document.body.classList.remove("light-theme");
         document.body.classList.add("dark-theme");
@@ -33,7 +37,8 @@ function selectMode(mode) {
             elements[0].classList.remove("light-card-footer");        
         }
 
-    } else if (mode === "light") {
+    // Light mode
+    } else if (themeSlider.checked != true) {
 
         document.body.classList.remove("dark-theme");
         document.body.classList.add("light-theme");
@@ -65,6 +70,5 @@ function selectMode(mode) {
             elements[0].classList.add("light-card-footer");
             elements[0].classList.remove("dark-card-footer");        
         }
-
     }
 }
