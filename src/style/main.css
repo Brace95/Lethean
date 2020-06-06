@@ -38,6 +38,12 @@
     background-color: #1f4646 !important;
 }
 
+/* Dark card body headings text */
+.dark-card-body-headings
+{
+    font-weight: 500;
+}
+
 /* Dark card footer text */
 .dark-card-footer
 {
@@ -72,6 +78,12 @@
 .light-card-body
 {
     background-color: #b8e0e0;
+}
+
+/* Light card body headings text */
+.light-card-body-headings
+{
+    font-weight: 500;
 }
 
 /* Light card footer text */
