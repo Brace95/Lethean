@@ -25,6 +25,12 @@ function themeSlider() {
             elements[0].classList.remove("light-card-body");        
         }
 
+        var elements = document.getElementsByClassName("light-card-body-headings");
+        while (elements[0] != null) {
+            elements[0].classList.add("dark-card-body-headings");
+            elements[0].classList.remove("light-card-body-headings");        
+        }
+
         var elements = document.getElementsByClassName("light-card-value");
         while (elements[0] != null) {
             elements[0].classList.add("dark-card-value");
@@ -57,6 +63,12 @@ function themeSlider() {
         while (elements[0] != null) {
             elements[0].classList.add("light-card-body");
             elements[0].classList.remove("dark-card-body");        
+        }
+
+        var elements = document.getElementsByClassName("dark-card-body-headings");
+        while (elements[0] != null) {
+            elements[0].classList.add("light-card-body-headings");
+            elements[0].classList.remove("dark-card-body-headings");        
         }
 
         var elements = document.getElementsByClassName("dark-card-value");
