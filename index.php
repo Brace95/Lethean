@@ -88,7 +88,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col text-right">
-                                <p>Provider Terms</p>
+                                <p class="light-card-body-headings">Provider Terms</p>
                             </div>
                             <div class="col-6 text-left">
                                 <span class="light-card-value"><?php echo $provider->name; ?></span>
@@ -97,7 +97,7 @@
                         <div class="row">
                             <div class="col"></div>
                             <div class="col text-right">
-                                Stability
+                                <span class="light-card-body-headings">Stability</span>
                             </div>
                             <div class="col-6 text-left">
                                 <span class="light-card-value"><?php 
@@ -105,7 +105,7 @@
                                     echo "Not Rated";
                                 }
                                 else {
-                                    echo $provider->mStability;
+                                    echo $provider->mStability." of 5";
                                 };
                                 ?></span>
                             </div>
@@ -113,7 +113,7 @@
                         <div class="row">
                             <div class="col"></div>
                             <div class="col text-right">
-                                Speed
+                                <span class="light-card-body-headings">Speed</span>
                             </div>
                             <div class="col-6 text-left">
                                 <span class="light-card-value"><?php 
@@ -121,7 +121,7 @@
                                     echo "Not Rated";
                                 }
                                 else {
-                                echo $provider->mSpeed; 
+                                echo $provider->mSpeed." of 5"; 
                                 };
                                 ?></span>
                             </div>
@@ -130,7 +130,7 @@
                             <div class="col">
                             </div>
                             <div class="col text-right">
-                                Download
+                                <span class="light-card-body-headings">Download</span>
                             </div>
                             <div class="col-6 text-left">
                                 <span class="light-card-value"><?php echo number_format($provider->downloadSpeed/(1000*1000), 2); ?> Mbps</span>
@@ -140,7 +140,7 @@
                             <div class="col">
                             </div>
                             <div class="col text-right">
-                                Upload
+                                <span class="light-card-body-headings">Upload</span>
                             </div>
                             <div class="col-6 text-left">
                                 <span class="light-card-value"><?php echo number_format($provider->uploadSpeed/(1000*1000), 2); ?> Mbps</span>
@@ -150,22 +150,32 @@
                             <div class="col">
                             </div>
                             <div class="col text-right">
-                                Cost
+                                <span class="light-card-body-headings">Price</span>
                             </div>                            
                             <div class="col-6 text-left">
-                                <img class="bullet" src="<?php echo $lethean_logo; ?>" >
                                 <span class="light-card-value"><?php echo number_format($provider->cost, 2); ?>
-                                /m</span>
+                                <img class="bullet" src="<?php echo $lethean_logo; ?>">
+                                / min</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col text-right">
-                                Min Cost
+                                <span class="light-card-body-headings">1st PrePaid Mins</span>
                             </div>
                             <div class="col-6 text-left">
                                 <span class="light-card-value"><em><?php echo ($provider->firstPrePaidMinutes * $provider->cost); ?></em>
                                 <img class="bullet" src="<?php echo $lethean_logo; ?>" >
                                 <em><?php echo " / " . $provider->firstPrePaidMinutes . " mins"; ?></em></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-right">
+                                <span class="light-card-body-headings">Additional Mins</span>
+                            </div>
+                            <div class="col-6 text-left">
+                                <span class="light-card-value"><em><?php echo ($provider->subsequentPrePaidMinutes * $provider->cost); ?></em>
+                                <img class="bullet" src="<?php echo $lethean_logo; ?>" >
+                                <em><?php echo " / " . $provider->subsequentPrePaidMinutes . " mins"; ?></em></span>
                             </div>
                         </div>
                     </div>
@@ -177,16 +187,19 @@
                         <div class="card-body light-card-body">
                             <div class="container">
                                 <div class="row">
-                                    <p class="col">Endpoint <span class="light-card-value"><?php echo $vpn->endpoint; ?><span></p>
+                                    <p class="col"><span class="light-card-body-headings">Provider </span><span class="light-card-value"><?php echo $provider->provider; ?></span></p>
                                 </div>
                                 <div class="row">
-                                    <p class="col">Port <span class="light-card-value"><?php echo $vpn->port; ?></span></p>
+                                    <p class="col"><span class="light-card-body-headings">Endpoint </span><span class="light-card-value"><?php echo $vpn->endpoint; ?><span></p>
                                 </div>
                                 <div class="row">
-                                    <p class="col">Endpoint Wallet <span class="light-card-value"><?php echo $provider->providerWallet; ?></span></p>
+                                    <p class="col"><span class="light-card-body-headings">Port </span><span class="light-card-value"><?php echo $vpn->port; ?></span></p>
                                 </div>
                                 <div class="row">
-                                    <p class="col">Payment ID (Required) <span class="light-card-value"><?php echo $provider->id; ?></span></p>
+                                    <p class="col"><span class="light-card-body-headings">Endpoint Wallet </span><span class="light-card-value"><?php echo $provider->providerWallet; ?></span></p>
+                                </div>
+                                <div class="row">
+                                    <p class="col"><span class="light-card-body-headings">Payment ID (Required) </span><span class="light-card-value"><?php echo $provider->id; ?></span></p>
                                 </div>
                                 <div class="row">
                                     <input type="hidden" class="provider" value="<?php echo str_replace(" ", "_", $provider->providerName); ?>" />
