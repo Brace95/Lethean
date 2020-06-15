@@ -171,3 +171,19 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+/* Rating colors */
+
+.unchecked:before {
+    content:"\f006";
+    color: orange;
+}
+    
+.checked {
+    content:"\f005";
+    color: orange;
+}
+    
+.fa-star-half-full{
+    color: orange;
+}
