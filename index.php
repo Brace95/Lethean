@@ -104,8 +104,22 @@
                                 if ($provider->mStability == "") {
                                     echo "Not Rated";
                                 }
-                                else {
-                                    echo $provider->mStability." of 5";
+                                else { ?>
+                                        <?php 
+                                        $rating = $provider->mStability;  // enter provider endpoint rating
+                                        $max_stars = 5; // maximum no. of stars
+                                        $star_rate = is_int($rating) ? 1 : 0;
+
+                                        for ($i = 1; $i <= $max_stars; $i++) { ?>
+                                            <?php if(round($rating) == $i && !$star_rate) { ?>
+                                                <span class="<?php echo 'fa fa-star fa-star-half-full'; ?>"></span>
+                                            <?php } elseif(round($rating) >= $i) { ?>
+                                                <span class="<?php echo 'fa fa-star checked'; ?>"></span>
+                                            <?php } else { ?>
+                                                <span class="<?php echo 'fa fa-star unchecked'; ?>"></span>
+                                            <?php }   
+                                        } ?><br>
+                                    <?php // echo $provider->mStability." of 5";
                                 };
                                 ?></span>
                             </div>
@@ -120,8 +134,22 @@
                                 if ($provider->mSpeed == "") {
                                     echo "Not Rated";
                                 }
-                                else {
-                                echo $provider->mSpeed." of 5"; 
+                                else { ?>
+                                    <?php 
+                                    $rating = $provider->mSpeed;  // enter provider endpoint rating
+                                    $max_stars = 5; // maximum no. of stars
+                                    $star_rate = is_int($rating) ? 1 : 0;
+
+                                    for ($i = 1; $i <= $max_stars; $i++) { ?>
+                                        <?php if(round($rating) == $i && !$star_rate) { ?>
+                                            <span class="<?php echo 'fa fa-star fa-star-half-full'; ?>"></span>
+                                        <?php } elseif(round($rating) >= $i) { ?>
+                                            <span class="<?php echo 'fa fa-star checked'; ?>"></span>
+                                        <?php } else { ?>
+                                            <span class="<?php echo 'fa fa-star unchecked'; ?>"></span>
+                                        <?php }   
+                                    } ?><br>
+                                    <?php // echo $provider->mSpeed." of 5"; 
                                 };
                                 ?></span>
                             </div>
@@ -133,7 +161,7 @@
                                 <span class="light-card-body-headings">Download</span>
                             </div>
                             <div class="col-6 text-left">
-                                <span class="light-card-value"><?php echo number_format($provider->downloadSpeed/(1000*1000), 2); ?> Mbps</span>
+                                <span class="light-card-value"><?php echo number_format($provider->downloadSpeed/(1000*1000), 0); ?> Mbps</span>
                             </div>
                         </div>
                         <div class="row">
@@ -143,7 +171,7 @@
                                 <span class="light-card-body-headings">Upload</span>
                             </div>
                             <div class="col-6 text-left">
-                                <span class="light-card-value"><?php echo number_format($provider->uploadSpeed/(1000*1000), 2); ?> Mbps</span>
+                                <span class="light-card-value"><?php echo number_format($provider->uploadSpeed/(1000*1000), 0); ?> Mbps</span>
                             </div>
                         </div> 
                         <div class="row">
@@ -153,7 +181,7 @@
                                 <span class="light-card-body-headings">Price</span>
                             </div>                            
                             <div class="col-6 text-left">
-                                <span class="light-card-value"><?php echo number_format($provider->cost, 2); ?>
+                                <span class="light-card-value"><?php echo number_format($provider->cost, 1); ?>
                                 <img class="bullet" src="<?php echo $lethean_logo; ?>">
                                 / min</span>
                             </div>
