@@ -75,14 +75,14 @@
 
         <main class="container">
             <?php 
-                foreach ($json->providers as $i => $provider) { 
-                    if ($provider->type == "vpn") {
+                foreach ($json as $i => $provider) { 
+                    if ($provider['type'] == "vpn") {
             ?>
 
             <div class="card light-card">
                 <span class="coming-soon"><img src="https://raw.githubusercontent.com/LetheanMovement/lethean-gui/master/images/lockIcon.png" class="text-center lock" alt="map"/> map coming soon</span>
                 <div class="card-header">
-                    <h5 class-="card-title"><?php echo $provider->providerName; ?></h5> 
+                    <h5 class-="card-title"><?php echo $provider['providerName']; ?></h5> 
                 </div>
                 <div class="card-body light-card-body">
                     <div class="container">
@@ -91,7 +91,7 @@
                                 <p class="light-card-body-headings">Provider Terms</p>
                             </div>
                             <div class="col-6 text-left">
-                                <span class="light-card-value"><?php echo $provider->name; ?></span>
+                                <span class="light-card-value"><?php echo $provider['name']; ?></span>
                             </div>
                         </div>
                         <div class="row">
@@ -101,12 +101,12 @@
                             </div>
                             <div class="col-6 text-left">
                                 <span class="light-card-value"><?php 
-                                if ($provider->mStability == "") {
+                                if ($provider['mStability'] == "") {
                                     echo "Not Rated";
                                 }
                                 else { ?>
                                         <?php 
-                                        $rating = $provider->mStability;  // enter provider endpoint rating
+                                        $rating = $provider['mStability'];  // enter provider endpoint rating
                                         $max_stars = 5; // maximum no. of stars
                                         $star_rate = is_int($rating) ? 1 : 0;
 
@@ -131,12 +131,12 @@
                             </div>
                             <div class="col-6 text-left">
                                 <span class="light-card-value"><?php 
-                                if ($provider->mSpeed == "") {
+                                if ($provider['mSpeed'] == "") {
                                     echo "Not Rated";
                                 }
                                 else { ?>
                                     <?php 
-                                    $rating = $provider->mSpeed;  // enter provider endpoint rating
+                                    $rating = $provider['mSpeed'];  // enter provider endpoint rating
                                     $max_stars = 5; // maximum no. of stars
                                     $star_rate = is_int($rating) ? 1 : 0;
 
@@ -161,7 +161,7 @@
                                 <span class="light-card-body-headings">Download</span>
                             </div>
                             <div class="col-6 text-left">
-                                <span class="light-card-value"><?php echo number_format($provider->downloadSpeed/(1000*1000), 0); ?> Mbps</span>
+                                <span class="light-card-value"><?php echo number_format($provider['downloadSpeed']/(1000*1000), 0); ?> Mbps</span>
                             </div>
                         </div>
                         <div class="row">
@@ -171,7 +171,7 @@
                                 <span class="light-card-body-headings">Upload</span>
                             </div>
                             <div class="col-6 text-left">
-                                <span class="light-card-value"><?php echo number_format($provider->uploadSpeed/(1000*1000), 0); ?> Mbps</span>
+                                <span class="light-card-value"><?php echo number_format($provider['uploadSpeed']/(1000*1000), 0); ?> Mbps</span>
                             </div>
                         </div> 
                         <div class="row">
@@ -181,7 +181,7 @@
                                 <span class="light-card-body-headings">Price</span>
                             </div>                            
                             <div class="col-6 text-left">
-                                <span class="light-card-value"><?php echo number_format($provider->cost, 1); ?>
+                                <span class="light-card-value"><?php echo number_format($provider['cost'], 1); ?>
                                 <img class="bullet" src="<?php echo $lethean_logo; ?>">
                                 / min</span>
                             </div>
@@ -191,9 +191,9 @@
                                 <span class="light-card-body-headings">1st PrePaid Mins</span>
                             </div>
                             <div class="col-6 text-left">
-                                <span class="light-card-value"><em><?php echo ($provider->firstPrePaidMinutes * $provider->cost); ?></em>
+                                <span class="light-card-value"><em><?php echo ($provider['firstPrePaidMinutes'] * $provider['cost']); ?></em>
                                 <img class="bullet" src="<?php echo $lethean_logo; ?>" >
-                                <em><?php echo " / " . $provider->firstPrePaidMinutes . " mins"; ?></em></span>
+                                <em><?php echo " / " . $provider['firstPrePaidMinutes'] . " mins"; ?></em></span>
                             </div>
                         </div>
                         <div class="row">
@@ -201,39 +201,39 @@
                                 <span class="light-card-body-headings">Additional Mins</span>
                             </div>
                             <div class="col-6 text-left">
-                                <span class="light-card-value"><em><?php echo ($provider->subsequentPrePaidMinutes * $provider->cost); ?></em>
+                                <span class="light-card-value"><em><?php echo ($provider['subsequentPrePaidMinutes'] * $provider['cost']); ?></em>
                                 <img class="bullet" src="<?php echo $lethean_logo; ?>" >
-                                <em><?php echo " / " . $provider->subsequentPrePaidMinutes . " mins"; ?></em></span>
+                                <em><?php echo " / " . $provider['subsequentPrePaidMinutes'] . " mins"; ?></em></span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card-footer light-card-footer">
-                    <?php foreach ($provider->vpn as $j => $vpn) { ?>
-                    <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#provider_<?php echo $i; ?>_endpoint_<?php echo $j; ?>_details" aria-expanded="false" aria-controls="provider_<?php echo $i; ?>_endpoint_<?php echo $j; ?>_details">Details</button>
-                    <div class="collapse" id="provider_<?php echo $i; ?>_endpoint_<?php echo $j; ?>_details">
+                    <?php foreach ($provider['vpn'] as $j => $vpn) { ?>
+                    <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#provider_<?php echo $provider['provider']."_".$i; ?>_id_<?php echo $provider['id']."_".$j; ?>_details" aria-expanded="false" aria-controls="provider_<?php echo $provider['provider']."_".$i; ?>_id_<?php echo $provider['id']."_".$j; ?>_details">Details</button>
+                    <div class="collapse" id="provider_<?php echo $provider['provider']."_".$i; ?>_id_<?php echo $provider['id']."_".$j; ?>_details">
                         <div class="card-body light-card-body">
                             <div class="container">
                                 <div class="row">
-                                    <p class="col"><span class="light-card-body-headings">Provider </span><span class="light-card-value"><?php echo $provider->provider; ?></span></p>
+                                    <p class="col"><span class="light-card-body-headings">Provider </span><span class="light-card-value"><?php echo $provider['provider']; ?></span></p>
                                 </div>
                                 <div class="row">
-                                    <p class="col"><span class="light-card-body-headings">Endpoint </span><span class="light-card-value"><?php echo $vpn->endpoint; ?><span></p>
+                                    <p class="col"><span class="light-card-body-headings">Endpoint </span><span class="light-card-value"><?php echo $vpn['endpoint']; ?><span></p>
                                 </div>
                                 <div class="row">
-                                    <p class="col"><span class="light-card-body-headings">Port </span><span class="light-card-value"><?php echo $vpn->port; ?></span></p>
+                                    <p class="col"><span class="light-card-body-headings">Port </span><span class="light-card-value"><?php echo $vpn['port']; ?></span></p>
                                 </div>
                                 <div class="row">
-                                    <p class="col"><span class="light-card-body-headings">Endpoint Wallet </span><span class="light-card-value"><?php echo $provider->providerWallet; ?></span></p>
+                                    <p class="col"><span class="light-card-body-headings">Endpoint Wallet </span><span class="light-card-value"><?php echo $provider['providerWallet']; ?></span></p>
                                 </div>
                                 <div class="row">
-                                    <p class="col"><span class="light-card-body-headings">Payment ID (Required) </span><span class="light-card-value"><?php echo $provider->id; ?></span></p>
+                                    <p class="col"><span class="light-card-body-headings">Payment ID (Required) </span><span class="light-card-value"><?php echo $provider['id']; ?></span></p>
                                 </div>
                                 <div class="row">
-                                    <input type="hidden" class="provider" value="<?php echo str_replace(" ", "_", $provider->providerName); ?>" />
-                                    <input type="hidden" class="id" value="<?php echo ("_" . $provider->id); ?>" />
-                                    <input type="hidden" class="host" value="<?php echo $vpn->endpoint; ?>" />
-                                    <input type="hidden" class="port" value="<?php echo str_replace("/UDP", "", $vpn->port); ?>" />
+                                    <input type="hidden" class="provider" value="<?php echo str_replace(" ", "_", $provider['providerName']); ?>" />
+                                    <input type="hidden" class="id" value="<?php echo ("_" . $provider['id']); ?>" />
+                                    <input type="hidden" class="host" value="<?php echo $vpn['endpoint']; ?>" />
+                                    <input type="hidden" class="port" value="<?php echo str_replace("/UDP", "", $vpn['port']); ?>" />
                                     <button class="download btn btn-outline-primary">Download</button>
                                 </div>
                             </div>
