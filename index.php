@@ -39,11 +39,12 @@
                     let port = $(this).parent().find(".port").val();
                     let pName = $(this).parent().find(".provider").val();
                     let pId = $(this).parent().find(".id").val();
+                    let cert = $(this).parent().find(".cert").val();
 
                     $.ajax({
                         method: "GET",
                         url: "generate.php", 
-                        data: {host: host, port: port}
+                        data: {host: host, port: port, cert: cert}
                     }).done(function (data) {
                         fileDownload(pName + pId + ".ovpn", data);
                     }).fail(function (){
@@ -234,6 +235,9 @@
                                     <input type="hidden" class="id" value="<?php echo ("_" . $provider['id']); ?>" />
                                     <input type="hidden" class="host" value="<?php echo $vpn['endpoint']; ?>" />
                                     <input type="hidden" class="port" value="<?php echo str_replace("/UDP", "", $vpn['port']); ?>" />
+                                        <?php foreach ($provider['certArray'] as $k => $certArray) { ?>
+                                            <input type="hidden" class="cert" value="<?php echo $certArray['certContent']; ?>" />
+                                        <?php } ?>
                                     <button class="download btn btn-outline-primary">Download</button>
                                 </div>
                             </div>
