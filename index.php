@@ -228,7 +228,7 @@
                                     <p class="col"><span class="light-card-body-headings">Endpoint Wallet </span><span class="light-card-value"><?php echo $provider['providerWallet']; ?></span></p>
                                 </div>
                                 <div class="row">
-                                    <p class="col"><span class="light-card-body-headings">Payment ID (Required) </span><span class="light-card-value"><?php echo $provider['id']; ?></span></p>
+                                    <p class="col"><span class="light-card-body-headings">Payment ID (Required) </span><span class="light-card-value"><?php echo $provider['id']."00000".mt_rand(000000000,999999999); ?></span></p>
                                 </div>
                                 <div class="row">
                                     <input type="hidden" class="provider" value="<?php echo str_replace(" ", "_", $provider['providerName']); ?>" />
